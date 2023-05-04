@@ -98,7 +98,7 @@ int main(void)
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
-  sd_write(50);
+
 
   /* USER CODE END 2 */
 

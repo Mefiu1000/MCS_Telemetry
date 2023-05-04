@@ -17,4 +17,6 @@
 #include "usart.h"
 #include <stdio.h>
 
-uint8_t sd_write(uint8_t num_msg);
+
+uint8_t sd_write2(uint8_t num_msg, char* file_name);
+uint8_t sd_read2(uint8_t num_msg, char* file_name);
