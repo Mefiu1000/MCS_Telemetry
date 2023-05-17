@@ -26,7 +26,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include "my_functions.h"
+#include <SD_Card.h>
+#include "nRF24L01/nRF24L01.h"
+#include "nRF24L01/nRF24L01_Defs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,11 +48,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-//FRESULT Result;
-//FATFS SD_FATFS;
-//FIL SD_Card_File;
-//uint8_t Size;
-//char data[60]; //buffor UART
+volatile uint8_t nrf24_rx_flag, nrf24_tx_flag, nrf24_mr_flag;
+uint8_t Nrf24_Message[NRF24_PAYLOAD_SIZE];
+uint8_t Message[32];
+uint8_t MessageLength;
+uint8_t TxAddr[] = {0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
+uint8_t RxAddr[] = {0xEE, 0xDD, 0xCC, 0xBB, 0xAA};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,7 +100,10 @@ int main(void)
   MX_USART1_UART_Init();
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
-
+  nRF24_Init(&hspi1);
+  nRF24_SetRXAddress(0, RxAddr);
+  nRF24_SetTXAddress(TxAddr);
+  nRF24_RX_Mode();
 
 
   /* USER CODE END 2 */

@@ -1,6 +1,7 @@
+"./Core/Src/SD_Card.o"
 "./Core/Src/gpio.o"
 "./Core/Src/main.o"
-"./Core/Src/my_functions.o"
+"./Core/Src/nRF24L01.o"
 "./Core/Src/spi.o"
 "./Core/Src/stm32f0xx_hal_msp.o"
 "./Core/Src/stm32f0xx_it.o"
